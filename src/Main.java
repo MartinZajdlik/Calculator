@@ -6,21 +6,19 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in); // Inicializace Scanneru pro vstupy z konzole
+        Scanner scanner = new Scanner(System.in);
 
-        // Požadujeme od uživatele první číslo
-        System.out.print("Zadej první číslo: ");
+
+        System.out.print("First number: ");
         double firstNumber = scanner.nextDouble();
 
-        // Požadujeme od uživatele operaci
-        System.out.print("Zadej operaci (+, -, *, /): ");
+        System.out.print("Choose operation (+, -, *, /): ");
         char operation = scanner.next().charAt(0);
 
-        // Požadujeme od uživatele druhé číslo
-        System.out.print("Zadej druhé číslo: ");
+        System.out.print("Second number: ");
         double secondNumber = scanner.nextDouble();
 
-        // V závislosti na zvolené operaci provádíme výpočet
+
         try {
             double result = 0;
             if (operation == '+' || operation == '-') {
@@ -38,14 +36,14 @@ public class Main {
                     result = advancedCalculator.divide(firstNumber, secondNumber);
                 }
             } else {
-                System.out.println("Neplatná operace.");
-                return; // Ukončí program, pokud je zadaná operace neplatná
+                System.out.println("Invalid operation.");
+                return;
             }
 
-            System.out.println("Výsledek: " + result); // Výpis výsledku
+            System.out.println("Result: " + result);
 
         } catch (ArithmeticException e) {
-            System.out.println("Chyba: " + e.getMessage()); // Ošetření chybového dělení nulou
+            System.out.println("Error: " + e.getMessage());
         }
     }
 }
